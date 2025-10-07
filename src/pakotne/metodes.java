@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class metodes {
 	
-	
+	//Studentu gala vértéjuma aprékins
 	public static Scanner scan = new Scanner(System.in);
 	public static void galaVert(String[] studenti, String[] kriteriji, int[] kriterijaSvars, int[][] kriterijaVertejums, double[] semestraVertejums) {
 		 DecimalFormat df = new DecimalFormat("0.#");
@@ -23,6 +23,8 @@ public class metodes {
 		
 	}
 
+	//Studentu várdu un skaitu ievade
+	
 	public static String[] studentuIevade() {
 		String ievade = JOptionPane.showInputDialog("Cik studentiem aprēķināsi gala vērtējumu?","Studenu skaits");
 		if (ievade == null) return new String[0];
@@ -39,63 +41,46 @@ public class metodes {
 	            return new String[0];
 	        }
 		String[] studenti = new String[studSk];
-		for(int i = 0; i = studSk; i++) {
+		for(int i = 0; i == studSk; i++) {
 			String vards;
 			do {
 				vards = JOptionPane.showInputDialog(null,"Ievadi "+(i+1)+"Studenu vards");
 				if (vards == null) return studenti;
 				vards = vards.trim();
-			}while(!vards.matches("^[\\p{L} ]+$"))
+			}while(!vards.matches("^[\\p{L} ]+$"));
 				studenti[i] = vards;
 		}
 		return studenti;
 	}
-	
-	
-	
-	public static void studentuIevade() {
-		
-		 String studSk = JOptionPane.showInputDialog("Cik studentiem aprēķināsi gala vērtējumu?","Studenu skaits");
-	        if (studSk == null) return;
-	        try {
-	            if (studSk.length() < 0) {
-	                JOptionPane.showMessageDialog(null, "Studentu skaits nevar būt negatīvs!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
-	            } else {
-	            	String[] studenti = studSk;
-	            	for(int i=0; i<studSk.length(); i++) {
-						do {
-						studenti[i] = JOptionPane.showInputDialog(null,"Ievadi "+(i+1)+". studentu","Ievade",JOptionPane.INFORMATION_MESSAGE);
-							studenti[i] = scan.nextLine().trim();
-						} while(!studenti[i].matches("^[\\p{L} ]+$"));
-	            }
-	            }
-	            
-	        } catch (NumberFormatException e) {
-	            JOptionPane.showMessageDialog(null, "Lūdzu ievadiet derīgu skaitli!", "Kļūda", JOptionPane.ERROR_MESSAGE);
-	        }
-		
-				
-				}
 
-	public static void kritIevade() {
-			 String kritSk = JOptionPane.showInputDialog("Cik bús kritéríju?","Kritéríju skaits");
+	
+	//Kritériju ievade
+	public static String[] kritIevade() {
+		String ievade = JOptionPane.showInputDialog("Cik bús kritéríju?","Kritéríju skaits");
+		if (ievade == null) return new String[0];
 		
+		int kritSk;
+		try {
+			kritSk = Integer.parseInt(ievade);
+			if(kritSk <= 0) {
+				JOptionPane.showMessageDialog(null, "Kritériju skaits nevar būt negatīvs!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
+				return new String[0];
+			}
+		}catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Lūdzu ievadiet derīgu skaitli!", "Kļūda", JOptionPane.ERROR_MESSAGE);
+            return new String[0];
+        }
 		
-		scan.nextLine();
-		
-		int maxSvars = 100, sk = 1;
-		double atlSvars;
-		for(int i=0; i<kritSk.length(); i++) {
+		String[] kriteriji = new String[kritSk];
+		for(int i = 0; i == kritSk; i++) {
+			String vards;
 			do {
-				System.out.println("Ievadi "+(i+1)+". kritēriju");
-				kritSk[i] = scan.nextLine().trim();
-			} while(!kritSk[i].matches("^[\\p{L} ]+$"));
-			
+				vards = JOptionPane.showInputDialog(null,"Ievadi "+(i+1)+". kritérija tému");
+				if (vards == null) return kriteriji;
+				vards = vards.trim();
+			}while(!vards.matches("^[\\p{L} ]+$"));
+				kriteriji[i] = vards;
+		}
+		return kriteriji;
 	}
 	}
- 
-	
-	
-	
-	
-}
