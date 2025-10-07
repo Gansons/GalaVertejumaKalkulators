@@ -54,7 +54,7 @@ public class metodes {
 		}
 		return studenti;
 	}
-
+	
 	
 	//Kritériju ievade
 	public static String[] kritIevade() {
@@ -86,4 +86,11 @@ public class metodes {
 		}
 		return kriteriji;
 	}
+	
+	
+	public static String[] kritSvars() {
+		
+		return null;
+	}
+	
 	}

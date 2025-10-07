@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 
 public class GalvenaKlase {
 	public static void main(String[] args) {
-		int studSk, kritSk;
 		String izvele;
 		Scanner scan = new Scanner(System.in);
 		 String[] darbibusarakst = {"Ievadīt audzēkņus", "Ievadīt kritērijus", "Ievadīt kritēriju svarus", ""
@@ -31,22 +30,22 @@ public class GalvenaKlase {
         	metodes.kritIevade();
         	break;
         case "Ievadīt kritēriju svarus":
-        	
+        	//metodes.kritSvars
         	break;
         case "Ievadīt vērtējumus":
-        		
+        	//metodes.vertIevade
         	break;
         case "Labot kritēriju":
-        	
+        	//metodes.kirtLabo
         	break;
         case "Labot kritērija svaru":
-        	
+        	//metodes.kritSvaruLabo
         	break;
         case "Labot iegūto vērtējumu":
-          
+        	//metodes.laboIegutVert
         	break;
         case "Nolasīt rezultātus no faila":
-        
+        	//metodes.galaVert(); *
         break;
 		}
 		} while (!izvele.equals("Beigt programmu"));
