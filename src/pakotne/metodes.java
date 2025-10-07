@@ -26,8 +26,9 @@ public class metodes {
 	//Studentu várdu un skaitu ievade
 	
 	public static String[] studentuIevade() {
-		String ievade = JOptionPane.showInputDialog("Cik studentiem aprēķināsi gala vērtējumu?","Studenu skaits");
-		if (ievade == null) return new String[0];
+		String ievade = JOptionPane.showInputDialog("Cik studentiem aprēķināsi gala vērtējumu?","Skaits");
+		if (ievade == null)
+		return new String[0];
 			
 			int studSk;
 			try {
@@ -40,6 +41,7 @@ public class metodes {
 	            JOptionPane.showMessageDialog(null, "Lūdzu ievadiet derīgu skaitli!", "Kļūda", JOptionPane.ERROR_MESSAGE);
 	            return new String[0];
 	        }
+			
 		String[] studenti = new String[studSk];
 		for(int i = 0; i == studSk; i++) {
 			String vards;
@@ -57,8 +59,9 @@ public class metodes {
 	//Kritériju ievade
 	public static String[] kritIevade() {
 		String ievade = JOptionPane.showInputDialog("Cik bús kritéríju?","Kritéríju skaits");
-		if (ievade == null) return new String[0];
-		
+		if (ievade == null) {
+		return new String[0];
+		}
 		int kritSk;
 		try {
 			kritSk = Integer.parseInt(ievade);
