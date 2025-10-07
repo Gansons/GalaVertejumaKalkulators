@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 
 public class metodes {
 	
-	public int studSk;
 	
 	public static Scanner scan = new Scanner(System.in);
 	public static void galaVert(String[] studenti, String[] kriteriji, int[] kriterijaSvars, int[][] kriterijaVertejums, double[] semestraVertejums) {
@@ -24,6 +23,36 @@ public class metodes {
 		
 	}
 
+	public static String[] studentuIevade() {
+		String ievade = JOptionPane.showInputDialog("Cik studentiem aprēķināsi gala vērtējumu?","Studenu skaits");
+		if (ievade == null) return new String[0];
+			
+			int studSk;
+			try {
+				studSk = Integer.parseInt(ievade);
+				if(studSk <= 0) {
+					JOptionPane.showMessageDialog(null, "Studentu skaits nevar būt negatīvs!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
+					return new String[0];
+				}
+			} catch (NumberFormatException e) {
+	            JOptionPane.showMessageDialog(null, "Lūdzu ievadiet derīgu skaitli!", "Kļūda", JOptionPane.ERROR_MESSAGE);
+	            return new String[0];
+	        }
+		String[] studenti = new String[studSk];
+		for(int i = 0; i = studSk; i++) {
+			String vards;
+			do {
+				vards = JOptionPane.showInputDialog(null,"Ievadi "+(i+1)+"Studenu vards");
+				if (vards == null) return studenti;
+				vards = vards.trim();
+			}while(!vards.matches("^[\\p{L} ]+$"))
+				studenti[i] = vards;
+		}
+		return studenti;
+	}
+	
+	
+	
 	public static void studentuIevade() {
 		
 		 String studSk = JOptionPane.showInputDialog("Cik studentiem aprēķināsi gala vērtējumu?","Studenu skaits");
